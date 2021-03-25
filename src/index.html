@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Stencil Component Starter</title>
+
+    <script type="module" src="/build/dava-components.esm.js"></script>
+    <script nomodule src="/build/dava-components.js"></script>
+  </head>
+  <body>
+    <div>
+      <dava-button>Button</dava-button>
+      <dava-button appearance="outline">Outline</dava-button>
+      <dava-button disabled>Disabled</dava-button>
+    </div>
+    <div style="margin-top: 16px;">
+      <dava-button-group>
+        <dava-button value="1">Left</dava-button>
+        <dava-button value="2" disabled>Center</dava-button>
+        <dava-button value="3">Right</dava-button>
+      </dava-button-group>
+    </div>
+    <div style="margin-top: 16px;">
+      <dava-button-group>
+        <dava-button value="1" appearance="outline">Left</dava-button>
+        <dava-button value="2" appearance="outline">Center</dava-button>
+        <dava-button value="3" appearance="outline">Right</dava-button>
+      </dava-button-group>
+    </div>
+  </body>
+
+  <script>
+    const davaButton = document.querySelector('dava-button');
+
+    davaButton.addEventListener('davaBlur', (event) => {
+      console.log('Button loses focus', event);
+    });
+
+    davaButton.addEventListener('davaClick', (event) => {
+      console.log('Button has been clicked', event);
+    });
+
+    davaButton.addEventListener('davaFocus', (event) => {
+      console.log('Button have focus', event);
+    });
+
+    const davaButtonGroup = document.querySelector('dava-button-group');
+    davaButtonGroup.addEventListener('davaChange', (event) => {
+      console.log('Button group changed!', event.detail);
+      console.log('Selected value:', event.detail.getAttribute('value'));
+    })
+
+  </script>
+</html>

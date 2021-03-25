@@ -1,0 +1,36 @@
+:host {
+  display: inline-block;
+}
+
+.dava-btn-group {
+  display: flex;
+  flex-wrap: nowrap;
+  position: relative;
+
+  &::slotted(dava-button:first-child::part(base)) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &::slotted(dava-button:last-child::part(base)) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  &::slotted(dava-button:not(:first-child):not(:last-child)::part(base)) {
+    border-radius: 0;
+  }
+
+  &::slotted(dava-button:not(:first-child)) {
+    margin-left: calc(-1 * 1px);
+  }
+
+  &::slotted(dava-button:not(:first-child)::part(base):not(:hover):not(:active):not(:focus):after) {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    border-left: solid 1px rgb(255 255 255 / 25%);
+  }
+}
