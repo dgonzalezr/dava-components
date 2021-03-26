@@ -7,8 +7,17 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface DavaButton {
+        /**
+          * If true, the button element will be shown as being active
+         */
         "active": boolean;
+        /**
+          * The base styling to apply to the button.
+         */
         "appearance": 'default' | 'outline';
+        /**
+          * Set if the button is disabled.
+         */
         "disabled": boolean;
     }
     interface DavaButtonGroup {
@@ -34,14 +43,43 @@ declare global {
 }
 declare namespace LocalJSX {
     interface DavaButton {
+        /**
+          * If true, the button element will be shown as being active
+         */
         "active"?: boolean;
+        /**
+          * The base styling to apply to the button.
+         */
         "appearance"?: 'default' | 'outline';
+        /**
+          * Set if the button is disabled.
+         */
         "disabled"?: boolean;
+        /**
+          * Callback to be called when the button loses focus
+          * @type {EventEmitter}
+          * @memberof DavaButton
+         */
         "onDavaBlur"?: (event: CustomEvent<any>) => void;
+        /**
+          * Callback to be called when the button is clicked
+          * @type {EventEmitter}
+          * @memberof DavaButton
+         */
         "onDavaClick"?: (event: CustomEvent<any>) => void;
+        /**
+          * Callback to be called when the button has focus
+          * @type {EventEmitter}
+          * @memberof DavaButton
+         */
         "onDavaFocus"?: (event: CustomEvent<any>) => void;
     }
     interface DavaButtonGroup {
+        /**
+          * Callback to be called when the button group section change
+          * @type {EventEmitter<HTMLDavaButtonElement>}
+          * @memberof DavaButtonGroup
+         */
         "onDavaChange"?: (event: CustomEvent<HTMLDavaButtonElement>) => void;
     }
     interface IntrinsicElements {

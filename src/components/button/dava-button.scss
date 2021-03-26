@@ -1,4 +1,14 @@
+$button--background-color: #de411b;
+$button--color: #fff;
+$button--border-width: 1px;
+$button--border-radius: 4px;
+
 :host {
+  --button--color: #{$button--color};
+  --button--background-color: #{$button--background-color};
+  --button--border-width: #{$button--border-width};
+  --button--border-radius: #{$button--border-radius};
+
   position: relative;
   cursor: pointer;
 
@@ -14,17 +24,14 @@
   justify-content: center;
 
   cursor: inherit;
-  border-radius: 4px;
+  border-radius: var(--button--border-radius);
   border: none;
 
-  color: #fff;
-  background-color: #de411b;
-  border-color: #de411b;
+  color: var(--button--color);
+  background-color: var(--button--background-color);
+  border-color: var(--button--background-color);
   border-style: solid;
-  border-width: 1px;
-
-  border-style: 1px;
-  border-width: 1px;
+  border-width: var(--button--border-width);
 
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -45,8 +52,8 @@
   transition-duration: 0.25s;
 
   &:hover:not(.disabled) {
-    background-color: lighten($color: #de411b, $amount: 10);
-    border-color: lighten($color: #de411b, $amount: 10);
+    background-color: lighten($button--background-color, 10);
+    border-color: lighten($button--background-color, 10);
   }
 
   &:focus:not(.disabled) {
@@ -56,8 +63,8 @@
 
   &:active:not(.disabled),
   &.active:not(.disabled) {
-    background-color: darken($color: #de411b, $amount: 10);
-    border-color: darken($color: #de411b, $amount: 10);
+    background-color: darken($button--background-color, 10);
+    border-color: darken($button--background-color, 10);
   }
 
   &.disabled {
@@ -66,13 +73,13 @@
   }
 
   &.btn__outline {
-    background-color: #fff;
-    color: #de411b;
+    background-color: var(--button-color);
+    color: var(--button--background-color);
 
     &:hover:not(.disabled),
     &:active:not(.disabled),
     &.active:not(.disabled) {
-      color: #fff;
+      color: var(--button--color);
     }
   }
 }

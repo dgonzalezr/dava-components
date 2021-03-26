@@ -7,9 +7,9 @@
 
 ## Events
 
-| Event        | Description | Type                                 |
-| ------------ | ----------- | ------------------------------------ |
-| `davaChange` |             | `CustomEvent<HTMLDavaButtonElement>` |
+| Event        | Description                                                | Type                                 |
+| ------------ | ---------------------------------------------------------- | ------------------------------------ |
+| `davaChange` | Callback to be called when the button group section change | `CustomEvent<HTMLDavaButtonElement>` |
 
 
 ----------------------------------------------
